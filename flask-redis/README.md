@@ -14,7 +14,7 @@ Project structure:
 .
 ├── Dockerfile
 ├── README.md
-├── app.py
+├── web_app.py
 ├── compose.yaml
 └── requirements.txt
 ```

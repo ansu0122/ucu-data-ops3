@@ -1,5 +1,5 @@
 import requests
-from app import app
+from web_app import app
 
 
 def test_app(mocker):
