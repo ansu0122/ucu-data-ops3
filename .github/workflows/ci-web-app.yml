@@ -37,7 +37,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     
     - name: Set up Docker Compose
-      uses: docker/compose-cli@v0.0.22
+      uses: docker/compose-cli@v1.0.34
       with:
         compose-version: 2
 
