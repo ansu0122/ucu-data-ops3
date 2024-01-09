@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./redis-server.conf:/etc/redis/redis.conf
+    command: ["redis-server", "/etc/redis/redis.conf"]
+
+  web:
+    build:
+      context: .
+      target: builder
+    # flask requires SIGINT to stop gracefully
+    # (default stop signal from Compose is SIGTERM)
+    image: ansu0122/flask-redis-web:2.0
+    stop_signal: SIGINT
+    # command: /bin/bash -c 'cat /run/secrets/redis-password'
+    environment:
+      - DB_PASSWORD=123456Qwerty
+      - REDIS_PORT=6379
+      - FLASK_PORT=8000
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+    secrets:
+      - redis-password
+
+secrets:
+  redis-password:
+    file: ./redis-creds
