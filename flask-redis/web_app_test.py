@@ -1,13 +1,20 @@
-import requests
+import pytest
+import os
+from unittest.mock import patch, Mock
 from web_app import app
 
+@pytest.fixture
+def client():
+    with app.test_client() as client:
+        yield client
 
-def test_app(mocker):
-    mock_requests = mocker.patch.object(requests, 'get')
-    mock_response = mocker.Mock()
-    mock_response.status_code = 200
-    mock_response.text = 'Mocked Response'
-    mock_requests.return_value = mock_response
-    response = app.test_client().get('/')
-    print('response code',response.status_code)
-    assert response.status_code == 200
+@patch('web_app.Redis')
+def test_app(mock_redis, client):
+    redis_instance = mock_redis.return_value
+    redis_instance.get.return_value = b'5'
+
+    response = client.get('/')
+    assert response.default_status == 200
+
+if __name__ == '__main__':
+    pytest.main()
