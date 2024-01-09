@@ -40,7 +40,7 @@ services:
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 [+] Running 24/24
  ⠿ redis Pulled   
  ...                                                                                                                                                                                                                                                                                                                                                                                                             
