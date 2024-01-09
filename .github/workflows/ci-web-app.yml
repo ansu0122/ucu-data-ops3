@@ -47,7 +47,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest *-test.py
+        pytest *_test.py
 
     - name: Set up Docker Buildx
       id: buildx
