@@ -10,8 +10,8 @@ resources:
 - web-claim0-persistentvolumeclaim.yaml
 - web-deployment.yaml
 - web-service.yaml
-namespace: default
+namespace: web-app-green
 images:
 - name: flask-redis-web
   newName: ansu0122/flask-redis-web
-  newTag: "2.0"
+  newTag: 4e4a49d71c1b908bcea62080418f3c4f66ce55f4
