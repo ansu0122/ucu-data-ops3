@@ -48,6 +48,7 @@ https://gist.github.com/juancsr/5927e6660d6ba5d2a34c61802d26e50a
 > docker history <image-tag>
 > docker inspect <image-id>
 > docker build -f Dockerfile -t ansu0122/data-ops:flask-redis-1.0 .
+> docker manifest inspect ansu0122/hello-gitops:1408995a515b3a1c6d4ff8c575197b3ab1dd08bf
 > docker tag <image-id>|<image-name> [namespace/]<repo-name>:<image-tag>
 > docker push [namespace/]<repo-name>:<image-tag>
 > docker image rm 357127334564

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: flask-web-app
-          image: ansu0122/flask-redis-web:2.0
+          image: ansu0122/flask-redis-web
           ports:
             - containerPort: 8000
           workingDir: /code
